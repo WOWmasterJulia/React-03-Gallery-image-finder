@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import css from './ImageGalleryItem.module.css';
 
-
-<li class="gallery-item">
+export const ImageGalleryItem = ({ }) => (
+ <li class="gallery-item">
   <img src="" alt="" />
-</li>
+</li> 
+)

@@ -2,9 +2,14 @@ import { Component } from 'react';
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 
+export class Modal extends Component {
 
-<div class="overlay">
-  <div class="modal">
+  render() {
+    return(
+    <div class="overlay">
+    <div class="modal">
     <img src="" alt="" />
-  </div>
-</div>
+    </div>
+    </div>
+    )}
+}

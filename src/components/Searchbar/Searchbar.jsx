@@ -3,18 +3,16 @@ import css from './Searchbar.module.css'
 
 
 
-// export class Searchbar extends Component {
-//   state = {
-//     query: '',
-//   };
-<header class="searchbar">
-  <form class="form">
-    <button type="submit" class="button">
-      <span class="button-label">Search</span>
+export const Searchbar = ({myonSubmit}) => (
+  
+<header className={css.Searchbar}>
+  <form className={css.Searchform} onSubmit={myonSubmit}>
+    <button type="submit" className={css.SearchFormButton}>
+      <span className={css.ButtonLabel}>Search</span>
     </button>
 
     <input
-      class="input"
+      className={css.SearchFormInput}
       type="text"
       autocomplete="off"
       autofocus
@@ -22,3 +20,8 @@ import css from './Searchbar.module.css'
     />
   </form>
 </header>
+)
+
+Searchbar.propTypes = { 
+  myonSubmit: PropTypes.func.isRequired
+}
