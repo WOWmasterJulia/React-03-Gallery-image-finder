@@ -24,10 +24,13 @@ export class App extends Component {
 
   async componentDidUpdate(_prevProps, prevState) {
     const { searchWord, page } = this.state;
+    
     if (prevState.searchWord !== searchWord || prevState.page !== page) {
       try {
         this.setState({ isLoading: true, error: null });
+        
         const resp = await getImagesAPI(searchWord, page);
+        // console.log("cdu", resp);
         if (!resp.length) {
           this.setState({
             isEmpty: true,
@@ -37,7 +40,7 @@ export class App extends Component {
           return;
         }
         const tmp = this.state.images.concat(resp);
-        console.log(resp);
+        // console.log(resp);
         this.setState({
           images: tmp,
           showMoreBtn: resp.length >= PER_PAGE,
@@ -54,6 +57,7 @@ export class App extends Component {
   onSubmit = evt => {
     evt.preventDefault();
     const sw = evt.target.elements[1].value;
+    // console.log(sw);
     if (sw !== '') {
       this.setState({
         searchWord: sw,
@@ -81,6 +85,7 @@ export class App extends Component {
   render() {
     const { showModal, showMoreBtn, isLoading, isEmpty, bigImage, images } =
       this.state;
+    // console.log(images);
     return (
       <div className={css.App}>
         <Searchbar myonSubmit={this.onSubmit} />

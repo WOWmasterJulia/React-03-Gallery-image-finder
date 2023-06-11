@@ -10,5 +10,5 @@ export const getImagesAPI= async (query, page) => {
     `?q=${query}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=${perPage}`
   );
 
-  return response.data;
+  return response.data.hits;
 }
